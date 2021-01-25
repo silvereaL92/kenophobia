@@ -177,15 +177,15 @@ namespace UnityEngine.Rendering.PostProcessing
             }
             else if (mode.value == AmbientOcclusionMode.MultiScaleVolumetricObscurance)
             {
-                //if (context != null)
-                //{
-                //    state &= context.resources.shaders.multiScaleAO
-                //          && context.resources.shaders.multiScaleAO.isSupported
-                //          && context.resources.computeShaders.multiScaleAODownsample1
-                //          && context.resources.computeShaders.multiScaleAODownsample2
-                //          && context.resources.computeShaders.multiScaleAORender
-                //          && context.resources.computeShaders.multiScaleAOUpsample;
-                //}
+                if (context != null)
+                {
+                    state &= context.resources.shaders.multiScaleAO
+                          && context.resources.shaders.multiScaleAO.isSupported
+                          && context.resources.computeShaders.multiScaleAODownsample1
+                          && context.resources.computeShaders.multiScaleAODownsample2
+                          && context.resources.computeShaders.multiScaleAORender
+                          && context.resources.computeShaders.multiScaleAOUpsample;
+                }
 
                 state &= SystemInfo.supportsComputeShaders
                       && !RuntimeUtilities.isAndroidOpenGL

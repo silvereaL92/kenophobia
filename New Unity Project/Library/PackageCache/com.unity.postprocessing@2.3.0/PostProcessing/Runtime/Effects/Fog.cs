@@ -31,10 +31,10 @@ namespace UnityEngine.Rendering.PostProcessing
         {
             return enabled
                 && RenderSettings.fog
-                && !RuntimeUtilities.scriptableRenderPipelineActive;
-        //        && context.resources.shaders.deferredFog
-        //        && context.resources.shaders.deferredFog.isSupported
-        //        && context.camera.actualRenderingPath == RenderingPath.DeferredShading;  // In forward fog is already done at shader level
+                && !RuntimeUtilities.scriptableRenderPipelineActive
+                && context.resources.shaders.deferredFog
+                && context.resources.shaders.deferredFog.isSupported
+                && context.camera.actualRenderingPath == RenderingPath.DeferredShading;  // In forward fog is already done at shader level
         }
 
         internal void Render(PostProcessRenderContext context)
