@@ -4,16 +4,27 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-
     public Component park;
 
     private void OnTriggerStay(Collider other)
     {
-        Animator anim = other.GetComponentInChildren<Animator>();
-        if (Input.GetKeyDown(KeyCode.F))
+        if (other.CompareTag("Door1"))
         {
-            anim.SetTrigger("FrontDoorOpen");
-            park.gameObject.SetActive(false);
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Animator anim1 = other.GetComponentInChildren<Animator>();
+                anim1.SetTrigger("openclose");
+            }
+        }
+
+        if (other.CompareTag("DoubleDoor"))
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Animator anim = other.GetComponentInChildren<Animator>();
+                anim.SetTrigger("openclose");
+                park.gameObject.SetActive(false);
+            }
         }
     }
 }
